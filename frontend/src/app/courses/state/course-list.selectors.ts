@@ -16,6 +16,13 @@ export const selectCourseListModel = createSelector(
         hasOfferings: true
       },
       {
+        id: '3',
+        title: 'Advanced Angular',
+        description: 'Learn More Advanced Stuff',
+        numberOfDays: 4,
+        hasOfferings: true
+      },
+      {
         id: '1',
         title: 'Event Driven Services',
         description: 'Kafkaesque Services FTW',
