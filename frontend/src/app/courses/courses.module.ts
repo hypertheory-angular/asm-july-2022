@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoursesComponent } from './courses.component';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes:Routes = [
   {
@@ -12,7 +13,8 @@ const routes:Routes = [
 
 @NgModule({
   declarations: [
-    CoursesComponent
+    CoursesComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
