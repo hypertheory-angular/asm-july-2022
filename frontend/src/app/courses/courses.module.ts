@@ -4,6 +4,7 @@ import { CoursesComponent } from './courses.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { ListComponent } from './components/list/list.component';
+import { StoreModule } from '@ngrx/store';
 
 const routes:Routes = [
   {
@@ -20,7 +21,8 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    StoreModule.forFeature("courses feature", {})
   ],
   exports: [
     RouterModule,

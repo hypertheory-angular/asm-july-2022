@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CourseListItemModel } from '../../models';
+import { selectCourseListModel } from '../../state/course-list.selectors';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+ model$!: Observable<CourseListItemModel[]>;
+
+  constructor(private store:Store) {  }
 
   ngOnInit(): void {
+
+    // calls this right before putting the component on the screen.
+    // this is where you do ANYTHING that will change what is going to display on the
+    // the screeen
+    this.model$ = this.store.select(selectCourseListModel);
   }
 
 }
