@@ -13,7 +13,14 @@
       </div>
     </div>
     <div class="card-footer">
-      <a *ngIf="course.hasOfferings" class="btn btn-sm btn-success">See When This Course Is Offered</a>
+
+      <a
+      [routerLink]="['..', course.id, 'offerings']"
+      *ngIf="course.hasOfferings">
+        <app-ui-link-button btnSize="sm">
+           When This Course Is Offered
+          </app-ui-link-button></a>
+
       <p *ngIf="course.hasOfferings === false" class="alert alert-info">
         No Offerings for this Course
       </p>
