@@ -8,12 +8,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class LinkButtonComponent implements OnInit {
   @Input() btnStyle: 'primary' | 'danger' | 'success' = 'primary';
   @Input() btnSize: 'sm' | 'md' | 'lg' = 'md';
-  @Output() btnClicked = new EventEmitter<string>();
+  @Output() btnClicked = new EventEmitter<TimeAndMessage>();
   constructor() {}
 
   ngOnInit(): void {}
 
   tellPapa() {
-    this.btnClicked.emit('This is from the link button');
+    this.btnStyle = 'danger';
+    this.btnClicked.emit({
+      time: new Date().toISOString(),
+      message: 'They clicked the button',
+    });
   }
+}
+
+export interface TimeAndMessage {
+  time: string;
+  message: string;
 }
