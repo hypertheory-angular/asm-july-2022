@@ -42,3 +42,27 @@ export const selectCounterDataForStorage = createSelector(
   selectCounterBranch,
   (b) => b as CounterDataForStorage
 );
+
+export const selectFizzBuzzMessage = createSelector(
+  selectCounterCurrentValue,
+  (c) => {
+    if (isFizzBuzz(c)) {
+      return 'fizzbuzz';
+    }
+    if (isFizz(c)) {
+      return 'fizz';
+    }
+    if (isBuzz(c)) {
+      return 'buzz';
+    }
+    return '';
+  }
+);
+
+function isFizz(c: number) {
+  return c % 3 === 0;
+}
+
+const isBuzz = (c: number) => c % 5 === 0;
+
+const isFizzBuzz = (c: number) => isFizz(c) && isBuzz(c);
