@@ -1,4 +1,4 @@
-import { createActionGroup, emptyProps } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 export const counterEventActions = createActionGroup({
   source: 'Counter Component Events',
@@ -6,5 +6,6 @@ export const counterEventActions = createActionGroup({
     increment: emptyProps(),
     decrement: emptyProps(),
     reset: emptyProps(),
+    countBySet: props<{ by: number }>(),
   },
 });

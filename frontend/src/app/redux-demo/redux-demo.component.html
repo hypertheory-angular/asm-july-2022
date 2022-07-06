@@ -4,7 +4,13 @@
   <button (click)="increment()" class="btn btn-sm btn-primary">+</button>
 </div>
 <div>
-  <button (click)="reset()" class="btn btn-lg btn-danger">
+  <button
+    (click)="reset()"
+    class="btn btn-lg btn-danger"
+    [disabled]="(current$ | async) === 0"
+  >
     RESET THE COUNT
   </button>
 </div>
+
+<app-count-by></app-count-by>
