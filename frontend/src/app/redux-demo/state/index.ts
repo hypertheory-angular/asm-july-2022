@@ -2,6 +2,7 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
+  createSelectorFactory,
 } from '@ngrx/store';
 import { CounterDataForStorage } from '../models';
 
@@ -57,6 +58,12 @@ export const selectFizzBuzzMessage = createSelector(
     }
     return '';
   }
+);
+
+export const selectDecrementShouldBeDisabled = createSelector(
+  selectCounterCurrentValue,
+  selectCounterCountingBy,
+  (current, by) => current - by < 0
 );
 
 function isFizz(c: number) {

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectCounterCurrentValue } from './state';
+import {
+  selectCounterCurrentValue,
+  selectDecrementShouldBeDisabled,
+} from './state';
 import {
   counterCommandActions,
   counterEventActions,
@@ -13,6 +16,7 @@ import {
 })
 export class ReduxDemoComponent implements OnInit {
   current$!: Observable<number>;
+  disableDecrement$!: Observable<boolean>;
 
   constructor(private store: Store) {
     store.dispatch(counterCommandActions.loadcounterdata());
@@ -20,6 +24,7 @@ export class ReduxDemoComponent implements OnInit {
 
   ngOnInit(): void {
     this.current$ = this.store.select(selectCounterCurrentValue);
+    this.disableDecrement$ = this.store.select(selectDecrementShouldBeDisabled);
   }
 
   increment() {
