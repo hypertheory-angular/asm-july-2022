@@ -9,20 +9,19 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { ReduxDemoModule } from './redux-demo/redux-demo.module';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavBarComponent
-  ],
+  declarations: [AppComponent, HomeComponent, NavBarComponent],
   imports: [
     CoursesModule,
+    ReduxDemoModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
