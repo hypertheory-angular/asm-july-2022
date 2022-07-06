@@ -1,5 +1,10 @@
 <div>
   <button (click)="decrement()" class="btn btn-sm btn-danger">-</button>
-  <span>{{ 0 }}</span>
+  <span>{{ current$ | async }}</span>
   <button (click)="increment()" class="btn btn-sm btn-primary">+</button>
+</div>
+<div>
+  <button (click)="reset()" class="btn btn-lg btn-danger">
+    RESET THE COUNT
+  </button>
 </div>
