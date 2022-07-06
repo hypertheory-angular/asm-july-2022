@@ -1,5 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { counterEventActions } from '../actions/counter.actions';
+import {
+  counterDocumentActions,
+  counterEventActions,
+} from '../actions/counter.actions';
 export interface CounterState {
   current: number;
   by: number;
@@ -12,6 +15,7 @@ const initialState: CounterState = {
 
 export const reducer = createReducer(
   initialState,
+  on(counterDocumentActions.counter, (_, a) => a.payload),
   on(counterEventActions.countbyset, (s, a) => ({ ...s, by: a.by })),
   on(counterEventActions.reset, (s) => ({ ...s, current: 0 })),
   on(counterEventActions.increment, (currentState: CounterState) => ({

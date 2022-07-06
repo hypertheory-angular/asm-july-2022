@@ -3,6 +3,7 @@ import {
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store';
+import { CounterDataForStorage } from '../models';
 
 import * as fromCounter from './reducers/counter.reducer';
 
@@ -35,4 +36,9 @@ export const selectCounterCurrentValue = createSelector(
 export const selectCounterCountingBy = createSelector(
   selectCounterBranch,
   (b) => b.by
+);
+
+export const selectCounterDataForStorage = createSelector(
+  selectCounterBranch,
+  (b) => b as CounterDataForStorage
 );
