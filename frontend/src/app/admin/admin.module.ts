@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseEntryComponent } from './components/course-entry/course-entry.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CourseEffects } from './state/effects/courses.effects';
 
 const routes: Routes = [
   {
@@ -27,7 +28,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(FEATURE_NAME, reducers),
     HttpClientModule,
-    EffectsModule.forFeature([CoursesFeatureEffects, CoursesDataEffects]),
+    EffectsModule.forFeature([
+      CoursesFeatureEffects,
+      CoursesDataEffects,
+      CourseEffects,
+    ]),
   ],
   exports: [RouterModule],
 })
