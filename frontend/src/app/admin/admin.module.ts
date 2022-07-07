@@ -10,6 +10,7 @@ import { CoursesDataEffects } from './state/effects/courses-data.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseEntryComponent } from './components/course-entry/course-entry.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
   declarations: [AdminComponent, CourseListComponent, CourseEntryComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(FEATURE_NAME, reducers),
     HttpClientModule,

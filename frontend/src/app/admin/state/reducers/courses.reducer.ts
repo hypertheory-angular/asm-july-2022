@@ -16,5 +16,6 @@ const initialState = adapter.getInitialState();
 
 export const reducer = createReducer(
   initialState,
+  on(courseDocuments.course, (s, a) => adapter.addOne(a.payload, s)),
   on(courseDocuments.courses, (s, a) => adapter.upsertMany(a.payload, s))
 );
