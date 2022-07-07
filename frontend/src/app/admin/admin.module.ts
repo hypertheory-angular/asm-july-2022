@@ -6,6 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { FEATURE_NAME, reducers } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { CoursesFeatureEffects } from './state/effects/feature.effects';
+import { CoursesDataEffects } from './state/effects/courses-data.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -20,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(FEATURE_NAME, reducers),
-    EffectsModule.forFeature([CoursesFeatureEffects]),
+    HttpClientModule,
+    EffectsModule.forFeature([CoursesFeatureEffects, CoursesDataEffects]),
   ],
   exports: [RouterModule],
 })

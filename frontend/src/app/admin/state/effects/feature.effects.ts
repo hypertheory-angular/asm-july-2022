@@ -8,8 +8,8 @@ import { map } from 'rxjs';
 export class CoursesFeatureEffects {
   whenFeatureIsEnteredLoadTheCourses$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(FeatureEvents.FeatureEntered),
-      map(() => courseCommands.load())
+      ofType(FeatureEvents.FeatureEntered), // nothing. FEA
+      map(() => courseCommands.load()) // coursesLoadAction
     );
   });
 
