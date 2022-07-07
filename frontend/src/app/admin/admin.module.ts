@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CoursesFeatureEffects } from './state/effects/feature.effects';
 import { CoursesDataEffects } from './state/effects/courses-data.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { CourseListComponent } from './components/course-list/course-list.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, CourseListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
