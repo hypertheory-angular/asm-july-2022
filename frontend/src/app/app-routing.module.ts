@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ReduxDemoComponent } from './redux-demo/redux-demo.component';
 
 const routes: Routes = [
+  // right here
   {
     path: 'home',
     component: HomeComponent,
@@ -23,6 +24,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home',
   },
+  // added here.
 ];
 
 @NgModule({

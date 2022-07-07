@@ -15,9 +15,8 @@ import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavBarComponent],
   imports: [
-    CoursesModule,
-
     BrowserModule,
+    CoursesModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
