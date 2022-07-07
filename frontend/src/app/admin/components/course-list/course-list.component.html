@@ -1,3 +1,7 @@
+<div class="alert alert-info" *ngIf="(model$ | async)?.length === 0">
+  <p>There are no courses, or they are being loaded... wait.</p>
+</div>
+
 <ol class="list-unstyled">
   <li class="card course" *ngFor="let course of model$ | async">
     <div class="card-header">{{ course.title }}</div>
